@@ -25,7 +25,7 @@ if (looks_like_number( $a)){
 			print"-------------------------------------------------\n";
 			if (looks_like_number( $c)){
 				$testroot = ($b**2)-(4*$a*$c);
-				if ($testroot < 0) {
+				if ($testroot <= 0) {
 					print "ERROR: CAN'T SOLVE NEGATIVE ROOT\n";
 					print"-------------------------------------------------\n";
 					print "DO YOU WANT TO COMPUTE AGAIN? (Yes [1] | NO [0])\n";

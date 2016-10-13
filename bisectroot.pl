@@ -41,7 +41,7 @@ do{
 			$iter=1;
 			
 			print"-------------------------------------------------------------------------\n";
-			print " Upper  \t Lower \t Xn \t\t Xn^2\n";
+			print "Upper\tLower\t Xn\t Xn^2\tERROR\n";
 			print"-------------------------------------------------------------------------\n";
 		
 			
@@ -50,8 +50,9 @@ do{
 
 				$xn =  ($xupp+$xlow)/2;
 				$xn2 = nlowmult(0.000000001,$xn**2);
+				$error = abs($n - $xn2);
 				
-				print "$xupp \t\t$xlow\t\t$xn\t\t$xn2    \n";
+				print "$xupp,  $xlow,  $xn,  $xn2,   $error    \n";
 				$iter +=1;
 			
 				if ($xn2<$n){

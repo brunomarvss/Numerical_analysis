@@ -24,23 +24,24 @@ do{
 		}
 		else{
 			$r= nlowmult( 1, sqrt($n));
+			$rr = $r**2;
 			$rn = $r;
 			$next = nlowmult(0.00000001,($rn+($n/$r))/2);
 			$error =   nlowmult(0.00000001,($next**2)-$n);
 			print"-------------------------------------------------\n";
-			print "Rn \t\t\t R  \t\t\tRn+1 \t
-			\t\t ERROR \n";
+			print "rn   r   r^2  rn+1 ERROR\n";
 			print"-------------------------------------------------\n";
-			print "$rn \t\t\t $r  \t\t\t$next\t\t$error \n";
+			print "$rn,  $r,  $rr,  $next,  $error \n";
 			$iter = 1;
 
 
 			until ($rn==$next){
 				$rn=nlowmult(0.00000001,$next);
 				$r=nlowmult(0.00000001,$next);
+				$rr = $r**2;
 				$next = nlowmult(0.00000001,($rn+($n/$r))/2);
 				$error =   nlowmult(0.00000001,($next**2)-$n);
-				print "$rn \t\t $r  \t\t$next\t\t$error \n";
+				print "$rn,  $r,  $rr,  $next,  $error \n";
 				$iter +=1;
 			}	
 

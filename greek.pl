@@ -31,11 +31,12 @@ do{
 			$r2= 0;
 			$sn2=nlowmult(0.00000001,(2*($k*$sn1))+(($n-$k**2)*$sn));
 			$r = nlowmult(0.00000001,($sn2/$sn1)-$k);
+			$rr = $r**2;
 			$error =  nlowmult(0.00000001,($r**2)-$n);
 			print"-------------------------------------------------------------------------\n";
-			print " s[n]  \t\t s[n+1] \ts[n+2] \t\t k\t\tERROR\n";
+			print "s[n]  s[n+1]  s[n+2]  r  r^2  ERROR\n";
 			print"-------------------------------------------------------------------------\n";
-			print "$sn\t\t$sn1\t\t $sn2\t\t$r \t\t$error   \n";
+			print "$sn,   $sn1,   $sn2,   $r,   $rr,   $error   \n";
 			$iter=1;
 			
 			until($r==$r2){
@@ -45,8 +46,9 @@ do{
 				
 				$sn2=nlowmult(0.00000001,(2*($k*$sn1))+(($n-$k**2)*$sn));
 				$r = nlowmult(0.00000001,($sn2/$sn1)-$k);
+				$rr = $r**2;
 				$error =  nlowmult(0.00000001,($r**2)-$n);
-				print "$sn\t\t$sn1\t\t $sn2\t\t$r \t\t$error\t\n";
+				print "$sn,   $sn1,   $sn2,   $r,  $rr,   $error   \n";
 				$iter +=1;
 			}
 			print"-------------------------------------------------------------------------\n";
