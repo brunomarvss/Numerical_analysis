@@ -1,5 +1,5 @@
 #PERL
-#REGULA FALSI
+#REGULA_FALSI
 #BRUNO
 
 use warnings;
