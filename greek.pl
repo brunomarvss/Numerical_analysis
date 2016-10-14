@@ -1,6 +1,7 @@
 #PERL
 #GREEK
 #BRUNO
+#n-r^2/r^2 EREL
 
 use warnings;
 use Scalar::Util qw(looks_like_number);
@@ -32,12 +33,14 @@ do{
 			$sn2=nlowmult(0.00000001,(2*($k*$sn1))+(($n-$k**2)*$sn));
 			$r = nlowmult(0.00000001,($sn2/$sn1)-$k);
 			$rr = $r**2;
-			$error =  nlowmult(0.00000001,($r**2)-$n);
-			print"-------------------------------------------------------------------------\n";
-			print "s[n]  s[n+1]  s[n+2]  r  r^2  ERROR\n";
-			print"-------------------------------------------------------------------------\n";
-			print "$sn,   $sn1,   $sn2,   $r,   $rr,   $error   \n";
+			$eabs =  abs(nlowmult(0.00000001,($r**2)-$n));
+			$erel =  nlowmult(0.00000001,($r**2-$n)/$r**2);
 			$iter=1;
+			print"-------------------------------------------------------------------------\n";
+			print "#  k  s[n] s[n+1] s[n+2]  r \t\t r^2\t\t  eabs \t \terel\n";
+			print"-------------------------------------------------------------------------\n";
+			print "$iter) $k | $sn | $sn1 | $sn2 | $r | $rr | $eabs | $erel   \n";
+			
 			
 			until($r==$r2){
 				$r2=$r;
@@ -47,9 +50,11 @@ do{
 				$sn2=nlowmult(0.00000001,(2*($k*$sn1))+(($n-$k**2)*$sn));
 				$r = nlowmult(0.00000001,($sn2/$sn1)-$k);
 				$rr = $r**2;
-				$error =  nlowmult(0.00000001,($r**2)-$n);
-				print "$sn,   $sn1,   $sn2,   $r,  $rr,   $error   \n";
+				$eabs =  abs(nlowmult(0.00000001,($r**2)-$n));
+				$erel =  nlowmult(0.00000001,($r**2-$n)/$r**2);
 				$iter +=1;
+				print "$iter) $k | $sn | $sn1 | $sn2 | $r | $rr | $eabs | $erel   \n";
+				
 			}
 			print"-------------------------------------------------------------------------\n";
 			print "\nNUMBER OF ITERATIONS: $iter\n";

@@ -46,17 +46,17 @@ do{
 					$neg = $test;			
 					$low= $x[$i];
 					}
+				
 				}
 				
 			my $xn = nlowmult(0.000000001,($upp-($pos*($upp-$low))/($pos-$neg))) ;	
 			$yn= ($a*($xn**4))+ ($b*($xn**3))+ ($c*($xn**2))+ ($d*$xn)+$e;
 			$iter=1;
-			
-			print"-------------------------------------------------------------------------\n";
-			print " Xu\t   Xl\t   Yu\t  Yl\t Xn\t Yn\n";
-			print"-------------------------------------------------------------------------\n\n";
-			print "$upp, $low, $pos,
-			 $neg,  $xn, $yn\n";
+			$eabs = abs($yn);
+			print"----------------------------------------------------------------------------------------------\n";
+			print " Xupper\t Yupper\t\t\tXlower\t\t\tYlower\t\t Xnext\t\t Ynext\t\tEabs\n";
+			print"-----------------------------------------------------------------------------------------------\n\n";
+			print "$upp, $pos, $low, $neg,  $xn, $yn , $eabs\n";
 			
 			if ($yn<0){
 				$upp= $xn;
@@ -73,9 +73,10 @@ do{
 			until($ynn==$yn){
 				$ynn = $yn;		
 				my $xn = nlowmult(0.000000001,($upp-($pos*($upp-$low))/($pos-$neg))) ;	
-				$yn= ($a*($xn**4))+ ($b*($xn**3))+ ($c*($xn**2))+ ($d*$xn)+$e;
+				$yn= nlowmult(0.000000001,($a*($xn**4))+ ($b*($xn**3))+ ($c*($xn**2))+ ($d*$xn)+$e);
 				$iter+=1;
-				print "$upp, $low, $pos, $neg, $xn, $yn \n";
+				$eabs = abs($yn);
+				print "$upp, $pos, $low, $neg,  $xn, $yn , $eabs\n";
 
 				if ($yn<0){
 				$upp= $xn;
@@ -90,13 +91,13 @@ do{
 
 				
 				}
-				print"-------------------------------------------------";
+				print"----------------------------------------------------------------------------------------------------\n";
 				print "\nNUMBER OF ITERATIONS: $iter\n";
 				choice();
 		}
 		else{
 			
-			print"-------------------------------------------------------------------------\n";
+			print"----------------------------------------------------------------------------------------------------\n";
 			print "ERROR: INPUT MUST NOT BE NEGATIVE OR ZERO\n";
 			choice();
 			}

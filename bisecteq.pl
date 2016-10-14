@@ -5,11 +5,16 @@ use warnings;
 use Scalar::Util qw(looks_like_number);
 use Math::Round 'nlowmult';
 
-sub choice(){
+
+
+sub choice(){
 		print"-------------------------------------------------------------------------\n";
 		print "DO YOU WANT TO COMPUTE AGAIN? (Yes [1] | NO [0])\n";
 		$ans= <>;
+		
+		
 }	
+
 	
 do{
 	print ("Enter the equation in the form of Ax^4+Bx^3+Cx^2+Dx+E: \n");
@@ -44,13 +49,15 @@ do{
 				}
 				
 			$x = ($upp+$low)/2;
+			$x2= $x**2;
 			$f= ($a*($x**4))+ ($b*($x**3))+ ($c*($x**2))+ ($d*$x)+$e;
+			$eabs=abs($f);
 			$iter=1;
 			
 			print"-------------------------------------------------------------------------\n";
-			print "Upper\tLower\t Xn\t Xn^2\tERROR\n";
+			print "# Upper\tLower\t Xn\t Xn^2\tf(x)\tEabs\n";
 			print"-------------------------------------------------------------------------\n";
-			print "$upp, $low, $x, $f\n";
+			print "$iter) $upp | $low | $x | $x2 | $f | $eabs\n";
 			
 			
 			if ($f<0){
@@ -67,10 +74,13 @@ do{
 			until($f1==$f){
 				$f1 = $f;		
 				$x = nlowmult(0.000000001,($upp+$low)/2);
+				$x2= $x**2;
 				$f= nlowmult(0.000000001,($a*($x**4))+ ($b*($x**3))+ ($c*($x**2))+ ($d*$x)+$e);
+				$eabs=abs($f);
 				$iter+=1;
 				
-								print "$upp, $low, $x, $f\n";
+								
+				print "$iter) $upp | $low | $x | $x2 | $f | $eabs\n";
 
 				
 				if ($f<0){
@@ -84,15 +94,25 @@ do{
 
 				
 			}
-				print"-------------------------------------------------";
+				print"--------------------------------------------------------------------------";
 				print "\nNUMBER OF ITERATIONS: $iter\n";
 				choice();
+				 $low = 0;
+				$upp = 0;
+				$x= 0;
+				$f1= 0;
+				$x = 0;
+				$x2= 0;
+				$f= 0;
+				$eabs=0;
+				$iter=0;
 		}
 		else{
 			
 			print"-------------------------------------------------------------------------\n";
 			print "ERROR: INPUT MUST NOT BE NEGATIVE OR ZERO\n";
 			choice();
+			
 			}
 }
 while($ans==1);

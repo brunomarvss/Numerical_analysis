@@ -38,21 +38,23 @@ do{
 			}
 				
 				
-			$iter=1;
+			
 			
 			print"-------------------------------------------------------------------------\n";
-			print "Upper\tLower\t Xn\t Xn^2\tERROR\n";
+			print "Upper\tLower\t Xn\t Xn^2\t Eabs \t Erel\n";
 			print"-------------------------------------------------------------------------\n";
-		
+			
+			
 			
 			until($xn2==$xn22){
 				$xn22=nlowmult(0.000000001,$xn2);
 
 				$xn =  ($xupp+$xlow)/2;
 				$xn2 = nlowmult(0.000000001,$xn**2);
-				$error = abs($n - $xn2);
+				$eabs= abs($n - $xn2);
+				$erel = nlowmult(0.000000001,($xn2-$n)/$xn2);
 				
-				print "$xupp,  $xlow,  $xn,  $xn2,   $error    \n";
+				print "$xupp,  $xlow,  $xn,  $xn2,   $eabs, $erel    \n";
 				$iter +=1;
 			
 				if ($xn2<$n){
