@@ -41,7 +41,7 @@ do{
 			
 			
 			print"-------------------------------------------------------------------------\n";
-			print "Upper\tLower\t Xn\t Xn^2\t Eabs \t Erel\n";
+			print "# Upper\tLower\t Xn\t Xn^2\t Eabs \t Erel\n";
 			print"-------------------------------------------------------------------------\n";
 			
 			
@@ -53,9 +53,9 @@ do{
 				$xn2 = nlowmult(0.000000001,$xn**2);
 				$eabs= abs($n - $xn2);
 				$erel = nlowmult(0.000000001,($xn2-$n)/$xn2);
-				
-				print "$xupp,  $xlow,  $xn,  $xn2,   $eabs, $erel    \n";
 				$iter +=1;
+				print "$iter)$xupp,  $xlow,  $xn,  $xn2,   $eabs, $erel    \n";
+				
 			
 				if ($xn2<$n){
 					$xlow=nlowmult(0.000000001,$xn);

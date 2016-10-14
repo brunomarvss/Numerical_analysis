@@ -1,7 +1,6 @@
 #PERL
 #GREEK
 #BRUNO
-#n-r^2/r^2 EREL
 
 use warnings;
 use Scalar::Util qw(looks_like_number);

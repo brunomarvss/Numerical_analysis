@@ -20,7 +20,7 @@ do{
 	if (looks_like_number( $a) && $a!=0){
 			print("Enter value for B = ");
 			$b= <>;
-			if (looks_like_number( $b)&& $b!=0){
+			if (looks_like_number( $b)){
 				print("Enter value for C = ");
 				$c=<>;
 				print"-------------------------------------------------\n";
