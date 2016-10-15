@@ -361,6 +361,7 @@ do{
 						print"-------------------------------------------------\n";
 						print "DO YOU WANT TO COMPUTE AGAIN? (Yes [1] | NO [0])\n";
 						$ans= <>;
+						system("cls");
 						
 					} 
 					else {
@@ -372,6 +373,7 @@ do{
 						print"\n-------------------------------------------------\n";
 						print "DO YOU WANT TO COMPUTE AGAIN? (Yes [1] | NO [0])\n";
 						$ans= <>;
+						system("cls");
 					}			
 				}
 				else {
